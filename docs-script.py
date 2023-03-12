@@ -2,6 +2,14 @@ import pyautogui
 import time
 import random
 
+time_delay_s = {
+    "start": 5,
+    "chr": 0.2,
+    "dot": 0.5,
+    "new_line": 0.1,
+    "space": 1,
+}
+
 
 def get_words():
     f = open("Input-Text.txt", "r")
@@ -18,13 +26,7 @@ def write_word(word: str, delay_s: int):
 
 words = get_words()
 print("got words")
-time_delay_s = {
-    "start": 5,
-    "chr": 0.2,
-    "dot": 0.5,
-    "new_line": 0.1,
-    "space": 1,
-}
+
 
 # time.sleep(time_delay_s)
 keys = {"dot": 0, "new_line": 0, "space": 0}
