@@ -18,22 +18,30 @@ def write_word(word: str, delay_s: int):
 
 words = get_words()
 print("got words")
-# time_delay_s = 4
+time_delay_s = {
+    "start": 5,
+    "chr": 0.2,
+    "dot": 0.5,
+    "new_line": 0.1,
+    "space": 1,
+}
 
 # time.sleep(time_delay_s)
 keys = {"dot": 0, "new_line": 0, "space": 0}
 
 print("started")
 for i in words:
-    for j in i:
-        if j == ".":
+    match i:
+        case ".":
             keys["dot"] += 1
-        if j == "\n":
+        case "\n":
             keys["new_line"] += 1
-        if j == " ":
+        case " ":
             keys["space"] += 1
+        # case _:
+
             # write_word(j, random.random()*2)
-        # else:
+            # else:
             # write_word(j, random.random()*0.14)
 
 print(keys.values())
