@@ -3,11 +3,11 @@ import time
 import random
 
 time_delay_s = {
-    "start": 5,
-    "chr": 0.2,
-    "dot": 0.5,
-    "new_line": 0.1,
-    "space": 1,
+    "start": 10,
+    "chr": 0.1,
+    "dot": 30,
+    "new_line": 45,
+    "space": 5,
 }
 
 
@@ -28,22 +28,23 @@ words = get_words()
 print("got words")
 
 
-# time.sleep(time_delay_s)
+time.sleep(time_delay_s["start"])
 keys = {"dot": 0, "new_line": 0, "space": 0}
 
 print("started")
 for i in words:
     match i:
         case ".":
-            keys["dot"] += 1
+            write_word(i, random.random() * time_delay_s["dot"])
         case "\n":
-            keys["new_line"] += 1
+            break
+            write_word(i, random.random()*time_delay_s["new_line"])
         case " ":
-            keys["space"] += 1
-        # case _:
-
+            write_word(i, random.random()*time_delay_s["space"])
+        case _:
+            write_word(i, random.random()*time_delay_s["chr"])
             # write_word(j, random.random()*2)
             # else:
             # write_word(j, random.random()*0.14)
 
-print(keys.values())
+print("finished")
